@@ -17,11 +17,11 @@ public class BattleInfo {
         return message;
     }
 
-    public RequestType getRequestType() {
+    RequestType getRequestType() {
         return requestType;
     }
 
-    public void setMessage(String message) {
+    void setMessage(String message) {
         this.message = message;
     }
 
@@ -38,7 +38,7 @@ public class BattleInfo {
         return queueTurn;
     }
 
-    public void setQueueTurn(int queueTurn) {
+    void setQueueTurn(int queueTurn) {
         this.queueTurn = queueTurn;
     }
 
@@ -46,15 +46,15 @@ public class BattleInfo {
         return status;
     }
 
-    public void setStatus(String status) {
+    void setStatus(String status) {
         this.status = status;
     }
 
-    public void setConnectionID(int connectionID) {
+    void setConnectionID(int connectionID) {
         this.connectionID = connectionID;
     }
 
-    public int getConnectionID() {
+    int getConnectionID() {
         return connectionID;
     }
 
@@ -62,7 +62,7 @@ public class BattleInfo {
         return isHost;
     }
 
-    public void setHost(boolean host) {
+    void setHost(boolean host) {
         isHost = host;
     }
 
@@ -70,7 +70,7 @@ public class BattleInfo {
         return queueSize;
     }
 
-    public void setQueueSize(int queueSize) {
+    void setQueueSize(int queueSize) {
         this.queueSize = queueSize;
     }
 
@@ -78,11 +78,11 @@ public class BattleInfo {
         return enemyId;
     }
 
-    public void setEnemyId(int enemyId) {
+    void setEnemyId(int enemyId) {
         this.enemyId = enemyId;
     }
 
-    public Player getPlayer() {
+    Player getPlayer() {
         return player;
     }
 
@@ -94,7 +94,7 @@ public class BattleInfo {
         return enemy;
     }
 
-    public void setEnemy(Player enemy) {
+    void setEnemy(Player enemy) {
         this.enemy = enemy;
     }
 }

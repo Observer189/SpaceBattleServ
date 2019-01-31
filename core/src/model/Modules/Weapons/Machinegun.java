@@ -17,7 +17,7 @@ import utils.Size;
 public class Machinegun extends WeaponModule {
 
 
-    long lastShotTime;
+    private long lastShotTime;
     public Machinegun( float x, float y,float rotation) {
         super("Machinegun", x, y,rotation, Size.Small, 10,10,0,0.5f);
 
