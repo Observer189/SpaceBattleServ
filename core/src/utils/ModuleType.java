@@ -5,5 +5,5 @@ package utils;
  */
 
 public enum ModuleType {
-    Weapon,Engine,EnergyModule
+    Weapon, Engine, EnergyModule
 }

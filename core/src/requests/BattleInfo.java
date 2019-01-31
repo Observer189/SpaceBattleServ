@@ -16,6 +16,7 @@ public class BattleInfo {
     private int queueSize;
     private int enemyId;
     private Player player;
+
     public String getMessage() {
         return message;
     }
@@ -32,9 +33,8 @@ public class BattleInfo {
         this.requestType = requestType;
     }
 
-    public enum RequestType
-    {
-        Adding,Info
+    public enum RequestType {
+        Adding, Info
     }
 
     public int getQueueTurn() {

@@ -3,6 +3,7 @@ package model.Maps;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+
 import model.Map;
 
 /**

@@ -6,17 +6,17 @@ import ServModels.ServShip;
 
 
 public class HostStartInfo {
-    int enemyConID;
-    ServShip ship;
-    ServShip enemyShip;
-    ServAsteroidField field;
-    public HostStartInfo()
-    {
+    private int enemyConID;
+    private ServShip ship;
+    private ServShip enemyShip;
+    private ServAsteroidField field;
+
+    public HostStartInfo() {
 
     }
-    public HostStartInfo(int enemyConID)
-    {
-        this.enemyConID=enemyConID;
+
+    public HostStartInfo(int enemyConID) {
+        this.enemyConID = enemyConID;
     }
 
     public int getEnemyConID() {

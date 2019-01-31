@@ -20,20 +20,20 @@ import utils.Size;
 
 public class Module {
 
-    Size size;
-    ModuleType type;
-    Body body;
-    Fixture fixture;
-    BodyDef bDef;
-    FixtureDef fDef;
-    PolygonShape shape;
-    float width;
-    float height;
-    World world;
+    private Size size;
+    private ModuleType type;
+    private Body body;
+    private Fixture fixture;
+    private BodyDef bDef;
+    private FixtureDef fDef;
+    private PolygonShape shape;
+    private float width;
+    private float height;
+    private World world;
     TextureAtlas textureAtlas;
 
-    Sprite sprite;
-    String spriteName;
+    private Sprite sprite;
+    private String spriteName;
 
     public Module(String spriteName,float x, float y,float rotation, Size size,ModuleType type, float density)
     {
@@ -82,7 +82,6 @@ public class Module {
     public void create(World world)
     {
         this.world=world;
-        this.textureAtlas=textureAtlas;
         body=world.createBody(bDef);
         fixture=body.createFixture(fDef);
 

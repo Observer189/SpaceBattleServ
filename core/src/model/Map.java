@@ -16,8 +16,8 @@ public class Map {
 
     private float width;
     private float height;
-    TextureRegion texture;
-    SpriteBatch batch;
+    private TextureRegion texture;
+    private SpriteBatch batch;
     public Map(SpriteBatch batch,TextureRegion texture,float width, float height)
     {
         this.batch=batch;
