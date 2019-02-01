@@ -8,6 +8,7 @@ public class ServBattleInfo {
     private float rotation;
     private long time;
     private ServAsteroidField saf;
+
     public void setRotation(float rotation) {
         this.rotation = rotation;
     }
