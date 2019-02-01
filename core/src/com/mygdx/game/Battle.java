@@ -117,7 +117,7 @@ public class Battle {
 			//}
 			
 			asteroidField.update();
-			if(lrt+5<System.currentTimeMillis())
+			if(lrt+20<System.currentTimeMillis())
 			{
 			System.out.println("x: "+players.get(0).getCurrentShip().getBody().getPosition().x
 					+" y: "+players.get(0).getCurrentShip().getBody().getPosition().y

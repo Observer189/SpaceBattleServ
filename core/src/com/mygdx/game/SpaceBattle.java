@@ -58,7 +58,7 @@ public class SpaceBattle extends ApplicationAdapter {
 	@Override
 	public void create() {
 		//создаем сервер
-		server=new Server(32768,32768);//В скобочках размер буферов написания и объекта
+		server=new Server(1500,1500);//В скобочках размер буферов написания и объекта
 		listener=new ServerListener();
 		players=new ArrayList<ServPlayer>();
 		waitQueue=new ArrayList<BattleInfo>();
