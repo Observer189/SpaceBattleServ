@@ -31,7 +31,7 @@ public class Battle {
     private Server server;
     private Array<Player> players;
     private Player enemy;
-    private long[] lastActTime;//массив времени последних запросов игроков. Соответствует массиву игроков
+    private long[] lastActTime;//РјР°СЃСЃРёРІ РІСЂРµРјРµРЅРё РїРѕСЃР»РµРґРЅРёС… Р·Р°РїСЂРѕСЃРѕРІ РёРіСЂРѕРєРѕРІ. РЎРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РјР°СЃСЃРёРІСѓ РёРіСЂРѕРєРѕРІ
 
     private AsteroidField asteroidField;
 
@@ -71,8 +71,8 @@ public class Battle {
         players[0].getCurrentShip().setTransform(20, 20, 200);
         players[0].getCurrentShip().setTargetRotation(200);
 
-        enemy = new Player();                 //Искусственно создаем противника с именем enemy
-        enemy.setName("enemy");// и передаем игроку
+        enemy = new Player();                 //РСЃРєСѓСЃСЃС‚РІРµРЅРЅРѕ СЃРѕР·РґР°РµРј РїСЂРѕС‚РёРІРЅРёРєР° СЃ РёРјРµРЅРµРј enemy
+        enemy.setName("enemy");// Рё РїРµСЂРµРґР°РµРј РёРіСЂРѕРєСѓ
         //PhysicShip tempShip=new Fury(55,30,0);
         //tempShip.create(world);
         enemy.setCurrentShip(new StarFighter(60, 30, 180));
@@ -80,7 +80,7 @@ public class Battle {
         //
 
         for (int i = 0; i < players.length; i++) {
-            players[i].getCurrentShip().setId(i + 1);                  //присваиваем идентификатор каждому кораблю
+            players[i].getCurrentShip().setId(i + 1);                  //РїСЂРёСЃРІР°РёРІР°РµРј РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР°Р¶РґРѕРјСѓ РєРѕСЂР°Р±Р»СЋ
             System.out.println(players[i].getCurrentShip().getId());
         }
 
@@ -114,7 +114,7 @@ public class Battle {
             //}
 
             asteroidField.update();
-            if (lrt + 5 < System.currentTimeMillis()) {
+            if (lrt + 20 < System.currentTimeMillis()) {
                 System.out.println("x: " + players.get(0).getCurrentShip().getBody().getPosition().x
                         + " y: " + players.get(0).getCurrentShip().getBody().getPosition().y
                         + " r: " + Math.toDegrees(players.get(0).getCurrentShip().getBody().getAngle()));
@@ -171,7 +171,7 @@ public class Battle {
     }
 
     void PlayerAct(PlayerActions acts) {
-        if (lastActTime[acts.getShipID() - 1] < acts.getTime())//проверяем является ли запрос новее предыдущего
+        if (lastActTime[acts.getShipID() - 1] < acts.getTime())//РїСЂРѕРІРµСЂСЏРµРј СЏРІР»СЏРµС‚СЃСЏ Р»Рё Р·Р°РїСЂРѕСЃ РЅРѕРІРµРµ РїСЂРµРґС‹РґСѓС‰РµРіРѕ
         {
             players.get(acts.getShipID() - 1).getCurrentShip().setMovementPosition(acts.getMovementPosition());
             players.get(acts.getShipID() - 1).getCurrentShip().setTargetRotation(acts.getTargetRotation());

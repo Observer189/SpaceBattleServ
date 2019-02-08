@@ -46,7 +46,7 @@ public class WeaponModule extends Module {
         this.world = world;
     }
 
-    public boolean shot(float l, Vector2 speedVector) //l - это расстояние от центра пушки до конца корабля
+    public boolean shot(float l, Vector2 speedVector) //l - СЌС‚Рѕ СЂР°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ С†РµРЅС‚СЂР° РїСѓС€РєРё РґРѕ РєРѕРЅС†Р° РєРѕСЂР°Р±Р»СЏ
     {
         return false;
     }

@@ -18,8 +18,8 @@ public class PhysicShip extends PhysicObject {
     private int movementPosition;
     private float rotationSpeed;
     private float targetRotation;
-    private float linearDamping;//не ниже 0.01
-    private int rotationDirection;//-1-влево 1-вправо 0-без вращения
+    private float linearDamping;//РЅРµ РЅРёР¶Рµ 0.01
+    private int rotationDirection;//-1-РІР»РµРІРѕ 1-РІРїСЂР°РІРѕ 0-Р±РµР· РІСЂР°С‰РµРЅРёСЏ
     //private float enginePower;
     private WeaponPoint[] weapons;
     private EnginePoint[] engines;
@@ -202,11 +202,11 @@ public class PhysicShip extends PhysicObject {
 
         while (shipRotation >= 360) {                 //
             shipRotation -= 360;                    //
-        }                                            //Установление градусной меры корабля в рамки 0 до 360
+        }                                            //РЈСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РіСЂР°РґСѓСЃРЅРѕР№ РјРµСЂС‹ РєРѕСЂР°Р±Р»СЏ РІ СЂР°РјРєРё 0 РґРѕ 360
         while (shipRotation <= 0) {                     //
             shipRotation += 360;                      //
         }                                            //
-        int spriteRotation = (int) targetRotation;   // Обрезаем значение до целого с помощью преобразование до Int
+        int spriteRotation = (int) targetRotation;   // РћР±СЂРµР·Р°РµРј Р·РЅР°С‡РµРЅРёРµ РґРѕ С†РµР»РѕРіРѕ СЃ РїРѕРјРѕС‰СЊСЋ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РґРѕ Int
         while (spriteRotation >= 360) {
             spriteRotation -= 360;
         }
@@ -215,8 +215,8 @@ public class PhysicShip extends PhysicObject {
         }
         //shipRotation=(Math.toDegrees(ship.getRotation())>360)?(float)Math.toDegrees(ship.getRotation())-360:(float)Math.toDegrees(ship.getRotation());
         //spriteRotation=(sprite.getRotation()>360)?sprite.getRotation()-360:sprite.getRotation();
-        int internalArc = Math.abs(shipRotation - spriteRotation);     //Находим внешнее и внутренне растояние в градусах между
-        int externalArc = 360 - internalArc;                           // фазой корабля и штурвала
+        int internalArc = Math.abs(shipRotation - spriteRotation);     //РќР°С…РѕРґРёРј РІРЅРµС€РЅРµРµ Рё РІРЅСѓС‚СЂРµРЅРЅРµ СЂР°СЃС‚РѕСЏРЅРёРµ РІ РіСЂР°РґСѓСЃР°С… РјРµР¶РґСѓ
+        int externalArc = 360 - internalArc;                           // С„Р°Р·РѕР№ РєРѕСЂР°Р±Р»СЏ Рё С€С‚СѓСЂРІР°Р»Р°
          /*if(internalArc<externalArc)
          {
              ship.setRotationDirection(1);
@@ -226,7 +226,7 @@ public class PhysicShip extends PhysicObject {
              ship.setRotationDirection(-1);
          }
          else ship.setRotationDirection(0);*/
-        int tempShip = (shipRotation < 180) ? shipRotation + 360 : shipRotation;// Увеличиваем половину градусной окружности на 360 для того чтобы избежать проблемы при вычитании перехода через 0
+        int tempShip = (shipRotation < 180) ? shipRotation + 360 : shipRotation;// РЈРІРµР»РёС‡РёРІР°РµРј РїРѕР»РѕРІРёРЅСѓ РіСЂР°РґСѓСЃРЅРѕР№ РѕРєСЂСѓР¶РЅРѕСЃС‚Рё РЅР° 360 РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РїСЂРѕР±Р»РµРјС‹ РїСЂРё РІС‹С‡РёС‚Р°РЅРёРё РїРµСЂРµС…РѕРґР° С‡РµСЂРµР· 0
         int tempSprite = (spriteRotation < 180) ? spriteRotation + 360 : spriteRotation;
 
         if (Math.abs(tempShip - tempSprite) > rotationSpeed) {
@@ -458,7 +458,7 @@ public class PhysicShip extends PhysicObject {
         } else if (servShip.getName().equals("StarFighter")) {
             ship = new StarFighter(servShip.getX(), servShip.getY(), servShip.getRotation());
         } else {
-            System.out.println("Корабль с данным именем не существует");
+            System.out.println("РљРѕСЂР°Р±Р»СЊ СЃ РґР°РЅРЅС‹Рј РёРјРµРЅРµРј РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
             return null;
         }
 

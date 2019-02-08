@@ -5,7 +5,7 @@ public class PlayerActions {
     private int shipID;
     private int movementPosition;
     private float targetRotation;
-    private long time;//время создания запроса
+    private long time;//РІСЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ Р·Р°РїСЂРѕСЃР°
 
     public PlayerActions() {
         time = System.currentTimeMillis();

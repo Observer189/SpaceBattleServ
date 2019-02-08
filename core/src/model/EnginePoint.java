@@ -94,8 +94,8 @@ public class EnginePoint {
         }
     }
 
-    void toShip(float x, float y, float rotation)//телепортирует тело к кораблю на расстояние нормального смещения
-    {//на вход передаются координаты корабля
+    void toShip(float x, float y, float rotation)//С‚РµР»РµРїРѕСЂС‚РёСЂСѓРµС‚ С‚РµР»Рѕ Рє РєРѕСЂР°Р±Р»СЋ РЅР° СЂР°СЃСЃС‚РѕСЏРЅРёРµ РЅРѕСЂРјР°Р»СЊРЅРѕРіРѕ СЃРјРµС‰РµРЅРёСЏ
+    {//РЅР° РІС…РѕРґ РїРµСЂРµРґР°СЋС‚СЃСЏ РєРѕРѕСЂРґРёРЅР°С‚С‹ РєРѕСЂР°Р±Р»СЏ
         engine.setTransform(x + localAnchor.x * (float) (Math.cos(Math.toRadians(rotation))) - localAnchor.y * (float) (Math.sin(Math.toRadians(rotation))),
                 y + localAnchor.y * (float) (Math.cos(Math.toRadians(rotation))) + localAnchor.x * (float) (Math.sin(Math.toRadians(rotation))), rotation);
     }

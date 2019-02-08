@@ -9,24 +9,24 @@ import model.Player;
 
 public class ServerListener extends Listener {
     public void connected(Connection c) {
-        System.out.println("На сервер подключился " + c.getRemoteAddressTCP().getHostString());
+        System.out.println("РќР° СЃРµСЂРІРµСЂ РїРѕРґРєР»СЋС‡РёР»СЃСЏ " + c.getRemoteAddressTCP().getHostString());
 
         BattleInfo info = new BattleInfo();
-        info.setMessage("Сейчас время: " + new Date().getHours() + ":" + new Date().getMinutes());
+        info.setMessage("РЎРµР№С‡Р°СЃ РІСЂРµРјСЏ: " + new Date().getHours() + ":" + new Date().getMinutes());
         c.sendTCP(info);
     }
 
     public void received(Connection c, Object p) {
         if (p instanceof Player) {
             Player player = (Player) p;
-            System.out.println("Его имя:" + player.getName());
-            System.out.println("Пинг:" + c.getReturnTripTime());
+            System.out.println("Р•РіРѕ РёРјСЏ:" + player.getName());
+            System.out.println("РџРёРЅРі:" + c.getReturnTripTime());
         }
     }
 
-    //Используется когда клиент покидает сервер.
+    //РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РєРѕРіРґР° РєР»РёРµРЅС‚ РїРѕРєРёРґР°РµС‚ СЃРµСЂРІРµСЂ.
     public void disconnected(Connection c) {
-        System.out.println("Клиент покинул сервер!");
+        System.out.println("РљР»РёРµРЅС‚ РїРѕРєРёРЅСѓР» СЃРµСЂРІРµСЂ!");
     }
 
 }

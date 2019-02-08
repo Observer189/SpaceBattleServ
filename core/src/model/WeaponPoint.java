@@ -30,8 +30,8 @@ public class WeaponPoint {
     public WeaponPoint(WeaponModule weapon, Vector2 localAnchor) {
 
         this.weapon = weapon;
-        weapon.setTransform(weapon.getX() + localAnchor.x, weapon.getY() + localAnchor.y, (float) Math.toDegrees(weapon.getAngle()));//смещаем координату тела до нужного положения перед его созданием
-        //следует также учитывать, что при создании любого корабля мы передаем телу его координаты
+        weapon.setTransform(weapon.getX() + localAnchor.x, weapon.getY() + localAnchor.y, (float) Math.toDegrees(weapon.getAngle()));//СЃРјРµС‰Р°РµРј РєРѕРѕСЂРґРёРЅР°С‚Сѓ С‚РµР»Р° РґРѕ РЅСѓР¶РЅРѕРіРѕ РїРѕР»РѕР¶РµРЅРёСЏ РїРµСЂРµРґ РµРіРѕ СЃРѕР·РґР°РЅРёРµРј
+        //СЃР»РµРґСѓРµС‚ С‚Р°РєР¶Рµ СѓС‡РёС‚С‹РІР°С‚СЊ, С‡С‚Рѕ РїСЂРё СЃРѕР·РґР°РЅРёРё Р»СЋР±РѕРіРѕ РєРѕСЂР°Р±Р»СЏ РјС‹ РїРµСЂРµРґР°РµРј С‚РµР»Сѓ РµРіРѕ РєРѕРѕСЂРґРёРЅР°С‚С‹
         this.localAnchor = localAnchor;
         jointDef = new WeldJointDef();
         jointDef.bodyA = shipBody; //_______________________________WATCH A MISTAKE______________________
@@ -45,12 +45,12 @@ public class WeaponPoint {
     public boolean installModule(WeaponModule weapon, Body shipBody, Vector2 localAnchor) {
         if (weapon.getType().equals(ModuleType.Weapon)) {
             this.weapon = weapon;
-            weapon.setTransform(weapon.getX() + localAnchor.x, weapon.getY() + localAnchor.y, (float) Math.toDegrees(weapon.getAngle()));//смещаем координату тела до нужного положения перед его созданием
+            weapon.setTransform(weapon.getX() + localAnchor.x, weapon.getY() + localAnchor.y, (float) Math.toDegrees(weapon.getAngle()));//СЃРјРµС‰Р°РµРј РєРѕРѕСЂРґРёРЅР°С‚Сѓ С‚РµР»Р° РґРѕ РЅСѓР¶РЅРѕРіРѕ РїРѕР»РѕР¶РµРЅРёСЏ РїРµСЂРµРґ РµРіРѕ СЃРѕР·РґР°РЅРёРµРј
             this.localAnchor = localAnchor;
             jointDef = new WeldJointDef();
             jointDef.bodyA = shipBody;
             jointDef.bodyB = weapon.getBody();
-            jointDef.localAnchorA.set(localAnchor.x, localAnchor.y);//указываем координату точки корабля к которому прекрепляем тело
+            jointDef.localAnchorA.set(localAnchor.x, localAnchor.y);//СѓРєР°Р·С‹РІР°РµРј РєРѕРѕСЂРґРёРЅР°С‚Сѓ С‚РѕС‡РєРё РєРѕСЂР°Р±Р»СЏ Рє РєРѕС‚РѕСЂРѕРјСѓ РїСЂРµРєСЂРµРїР»СЏРµРј С‚РµР»Рѕ
             jointDef.collideConnected = false;
             joint = world.createJoint(jointDef);
 
@@ -90,8 +90,8 @@ public class WeaponPoint {
         weapon.destroy();
     }
 
-    void toShip(float x, float y, float rotation)//телепортирует тело к кораблю на расстояние нормального смещения
-    {//на вход передаются координаты корабля
+    void toShip(float x, float y, float rotation)//С‚РµР»РµРїРѕСЂС‚РёСЂСѓРµС‚ С‚РµР»Рѕ Рє РєРѕСЂР°Р±Р»СЋ РЅР° СЂР°СЃСЃС‚РѕСЏРЅРёРµ РЅРѕСЂРјР°Р»СЊРЅРѕРіРѕ СЃРјРµС‰РµРЅРёСЏ
+    {//РЅР° РІС…РѕРґ РїРµСЂРµРґР°СЋС‚СЃСЏ РєРѕРѕСЂРґРёРЅР°С‚С‹ РєРѕСЂР°Р±Р»СЏ
         weapon.setTransform(x + localAnchor.x * (float) (Math.cos(Math.toRadians(rotation))) - localAnchor.y * (float) (Math.sin(Math.toRadians(rotation))),
                 y + localAnchor.y * (float) (Math.cos(Math.toRadians(rotation))) + localAnchor.x * (float) (Math.sin(Math.toRadians(rotation))), rotation);
     }
