@@ -143,7 +143,7 @@ public class SpaceBattle extends ApplicationAdapter {
                     //System.out.println("Id: "+player.getConID());
                 } else if (p instanceof PlayerActions) {
                     PlayerActions acts = (PlayerActions) p;
-                    //battle.PlayerAct(acts);
+                    battle.PlayerAct(acts);
                 }
 
 
