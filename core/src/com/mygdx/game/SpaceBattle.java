@@ -57,15 +57,15 @@ public class SpaceBattle extends ApplicationAdapter {
 
     @Override
     public void create() {
-        //создаем сервер
-        server = new Server(32768, 32768);//В скобочках размер буферов написания и объекта
+        //СЃРѕР·РґР°РµРј СЃРµСЂРІРµСЂ
+        server = new Server(32768, 32768);//Р’ СЃРєРѕР±РѕС‡РєР°С… СЂР°Р·РјРµСЂ Р±СѓС„РµСЂРѕРІ РЅР°РїРёСЃР°РЅРёСЏ Рё РѕР±СЉРµРєС‚Р°
         listener = new ServerListener();
         players = new ArrayList<ServPlayer>();
         waitQueue = new ArrayList<BattleInfo>();
 
         World world = new World(new Vector2(0, 0), false);
 
-        //регистрируем класс
+        //СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј РєР»Р°СЃСЃ
         kryo = server.getKryo();
         kryo.register(BattleInfo.class);
 
@@ -84,7 +84,7 @@ public class SpaceBattle extends ApplicationAdapter {
         kryo.register(PlayerActions.class);
         kryo.register(ServBattleInfo.class);
 
-        //регистрируем порт
+        //СЂРµРіРёСЃС‚СЂРёСЂСѓРµРј РїРѕСЂС‚
         try {
             server.bind(tcpPort, udpPort);
         } catch (IOException e) {
@@ -92,12 +92,12 @@ public class SpaceBattle extends ApplicationAdapter {
             e.printStackTrace();
         }
 
-        //запускаем сервер
+        //Р·Р°РїСѓСЃРєР°РµРј СЃРµСЂРІРµСЂ
         server.start();
 
         server.addListener(new Listener() {
             public void connected(Connection c) {
-                System.out.println("На сервер подключился " + c.getRemoteAddressTCP().getHostString());
+                System.out.println("РќР° СЃРµСЂРІРµСЂ РїРѕРґРєР»СЋС‡РёР»СЃСЏ " + c.getRemoteAddressTCP().getHostString());
 
 
             }
@@ -106,28 +106,28 @@ public class SpaceBattle extends ApplicationAdapter {
                 if (p instanceof BattleInfo) {
                     BattleInfo info = (BattleInfo) p;
                     if (info.getRequestType().equals(BattleInfo.RequestType.Adding)) {
-                        System.out.println("Клиент просит добавления в очередь");
+                        System.out.println("РљР»РёРµРЅС‚ РїСЂРѕСЃРёС‚ РґРѕР±Р°РІР»РµРЅРёСЏ РІ РѕС‡РµСЂРµРґСЊ");
                         info.setConnectionID(c.getID());
                         info.setStatus("inQueue");
                         waitQueue.add(info);
-                        System.out.println("Клиент добавлен в очередь");
+                        System.out.println("РљР»РёРµРЅС‚ РґРѕР±Р°РІР»РµРЅ РІ РѕС‡РµСЂРµРґСЊ");
                         info.setQueueTurn(waitQueue.size());
                         info.setQueueSize(waitQueue.size());
                         c.sendTCP(info);
-                        System.out.println("Отправляем ответ");
+                        System.out.println("РћС‚РїСЂР°РІР»СЏРµРј РѕС‚РІРµС‚");
                     } else if (info.getRequestType().equals(BattleInfo.RequestType.Info)) {
-                        System.out.println("Клиент запрашивает информацию об очереди");
+                        System.out.println("РљР»РёРµРЅС‚ Р·Р°РїСЂР°С€РёРІР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ РѕР± РѕС‡РµСЂРµРґРё");
                         info.setQueueSize(waitQueue.size());
                         c.sendTCP(info);
-                        System.out.println("Отправляем информацию");
+                        System.out.println("РћС‚РїСЂР°РІР»СЏРµРј РёРЅС„РѕСЂРјР°С†РёСЋ");
                     }
 
                 } else if (p instanceof HostStartInfo) {
-                    System.out.println("Хост высылает начальные данные");
+                    System.out.println("РҐРѕСЃС‚ РІС‹СЃС‹Р»Р°РµС‚ РЅР°С‡Р°Р»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ");
                     HostStartInfo hsi = (HostStartInfo) p;
                     server.sendToTCP(hsi.getEnemyConID(), hsi);
                 } else if (p instanceof ClientStartInfo) {
-                    System.out.println("Клиент высылает начальные данные");
+                    System.out.println("РљР»РёРµРЅС‚ РІС‹СЃС‹Р»Р°РµС‚ РЅР°С‡Р°Р»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ");
                     ClientStartInfo csi = (ClientStartInfo) p;
                     server.sendToTCP(csi.getEnemyConID(), csi);
                 } else if (p instanceof ServPlayer) {
@@ -139,7 +139,7 @@ public class SpaceBattle extends ApplicationAdapter {
                     System.out.println("Id: " + player.getCurrentShip().getId());
 
                     battle = new Battle(battleID, server, players);
-                    System.out.println("В бой вошел" + player.getName());
+                    System.out.println("Р’ Р±РѕР№ РІРѕС€РµР»" + player.getName());
                     //System.out.println("Id: "+player.getConID());
                 } else if (p instanceof PlayerActions) {
                     PlayerActions acts = (PlayerActions) p;
@@ -149,15 +149,15 @@ public class SpaceBattle extends ApplicationAdapter {
 
             }
 
-            //Используется когда клиент покидает сервер.
+            //РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РєРѕРіРґР° РєР»РёРµРЅС‚ РїРѕРєРёРґР°РµС‚ СЃРµСЂРІРµСЂ.
             public void disconnected(Connection c) {
-                System.out.println("Клиент покинул сервер!");
+                System.out.println("РљР»РёРµРЅС‚ РїРѕРєРёРЅСѓР» СЃРµСЂРІРµСЂ!");
                 for (int i = 0; i < waitQueue.size(); i++) {
                     if (waitQueue.get(i).getConnectionID() == c.getID()) {
                         waitQueue.remove(i);
                     }
                 }
-                System.out.println("Клиент был удален из очереди");
+                System.out.println("РљР»РёРµРЅС‚ Р±С‹Р» СѓРґР°Р»РµРЅ РёР· РѕС‡РµСЂРµРґРё");
             }
         });
 
@@ -176,14 +176,14 @@ public class SpaceBattle extends ApplicationAdapter {
             waitQueue.get(1).setStatus("inBattle");
             server.sendToTCP(waitQueue.get(0).getConnectionID(), waitQueue.get(0));
             server.sendToTCP(waitQueue.get(1).getConnectionID(), waitQueue.get(1));
-            System.out.println("Направвляем двух игроков в бой");
+            System.out.println("РќР°РїСЂР°РІРІР»СЏРµРј РґРІСѓС… РёРіСЂРѕРєРѕРІ РІ Р±РѕР№");
             waitQueue.remove(1);
             waitQueue.remove(0);
-            System.out.println("Удаляем их из очереди");
+            System.out.println("РЈРґР°Р»СЏРµРј РёС… РёР· РѕС‡РµСЂРµРґРё");
         }
         if (battle != null) {
             battle.update();
-            //System.out.println("Обновляем бои");
+            //System.out.println("РћР±РЅРѕРІР»СЏРµРј Р±РѕРё");
         }
     }
 
